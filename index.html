@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Portafolio - William David Gazabon Galvis</title>
+    <title>Portafolio - William</title>
     <style>
       body {
         font-family: Arial, sans-serif;
@@ -18,6 +18,10 @@
         color: #fff;
         padding: 1rem;
         text-align: center;
+      }
+
+      .language-selector {
+        margin-top: 10px;
       }
 
       main {
@@ -56,33 +60,41 @@
   </head>
   <body>
     <header>
-      <h1>William David Gazabon Galvis</h1>
-      <p>Programador Backend | Laravel · Livewire · MySQL</p>
+      <h1 id="titulo-nombre">William</h1>
+      <p id="titulo-profesion">
+        Programador Backend | Laravel · Livewire · MySQL
+      </p>
+      <div class="language-selector">
+        <label for="lang">Idioma / Language:</label>
+        <select id="lang">
+          <option value="es">Español</option>
+          <option value="en">English</option>
+        </select>
+      </div>
     </header>
 
     <main>
-        <!-- about me -->
       <section>
-        <h2>Sobre mí</h2>
-        <p>
+        <h2 id="seccion-sobre-mi">Sobre mí</h2>
+        <p id="texto-sobre-mi">
           Desarrollador backend con experiencia en creación de APIs,
           automatización de procesos y trabajo con bases de datos. Me enfoco en
           soluciones simples, eficientes y bien estructuradas.
         </p>
       </section>
-<!-- projects -->
+
       <section>
-        <h2>Proyectos</h2>
-<!-- guru educativo -->
+        <h2 id="seccion-proyectos">Proyectos</h2>
+
         <div class="proyecto">
           <h3>Guru Educativa - Plataforma Web de Gestión Escolar</h3>
-          <p>
+          <p id="guru-descripcion">
             Plataforma desarrollada en Laravel + Livewire que permite la gestión
             integral de instituciones educativas. Incluye distintos tipos de
             usuario (Administrador, Colegio, Docente y Estudiante), cada uno con
             funcionalidades específicas.
           </p>
-          <ul>
+          <ul id="guru-lista">
             <li>
               <strong>Administrador:</strong> Registra y gestiona colegios.
             </li>
@@ -91,7 +103,7 @@
               materias y asignaciones.
             </li>
             <li>
-              <strong>Docente:</strong> Crea y califica trabajos y exámenes.Registra asistencias.
+              <strong>Docente:</strong> Crea y califica trabajos y exámenes.
             </li>
             <li>
               <strong>Estudiante:</strong> Realiza trabajos, exámenes y consulta
@@ -106,15 +118,12 @@
             <a href="https://github.com/heroelocopro/MPEC" target="_blank"
               >Ver en GitHub</a
             >
-            <a href="https://gurupeducativa.com/" target="_blank">
-                Ver en Produccion.
-            </a>
           </p>
         </div>
 
-        <!-- <div class="proyecto">
+        <div class="proyecto">
           <h3>API de Gestión de Tareas</h3>
-          <p>
+          <p id="api-tareas">
             REST API desarrollada con Node.js y Express. Permite CRUD de tareas
             con autenticación JWT.
           </p>
@@ -129,7 +138,7 @@
 
         <div class="proyecto">
           <h3>Automatizador de Reportes</h3>
-          <p>
+          <p id="reportes">
             Script en Python que genera reportes semanales desde una base de
             datos PostgreSQL y los envía por correo.
           </p>
@@ -141,17 +150,11 @@
             >
           </p>
         </div>
-         -->
       </section>
 
-      <!-- contact -->
       <section>
-        <h2>Contacto</h2>
-        <p>Email:
-        <a href="mailto:williamdavidgazabon@gmail.com" target="_blank">
-            
-            williamdavidgazabon@gmail.com</p>
-        </a>
+        <h2 id="seccion-contacto">Contacto</h2>
+        <p>Email: william@correo.com</p>
         <p>
           GitHub:
           <a href="https://github.com/heroelocopro" target="_blank"
@@ -160,15 +163,64 @@
         </p>
         <p>
           LinkedIn:
-          <a href="https://www.linkedin.com/in/william-david-gazabon-galvis-90776a241/" target="_blank"
-            >linkedin.com/in/william-david-gazabon-galvis-90776a241</a
+          <a href="https://www.linkedin.com/in/tuusuario" target="_blank"
+            >linkedin.com/in/tuusuario</a
           >
         </p>
       </section>
     </main>
-<!-- footer -->
+
     <footer>
       <p>&copy; 2025 William</p>
     </footer>
+
+    <script>
+      const langSelector = document.getElementById("lang");
+
+      langSelector.addEventListener("change", function () {
+        const lang = langSelector.value;
+
+        if (lang === "es") {
+          document.getElementById("titulo-profesion").textContent =
+            "Programador Backend | Laravel · Livewire · MySQL";
+          document.getElementById("seccion-sobre-mi").textContent = "Sobre mí";
+          document.getElementById("texto-sobre-mi").textContent =
+            "Desarrollador backend con experiencia en creación de APIs, automatización de procesos y trabajo con bases de datos. Me enfoco en soluciones simples, eficientes y bien estructuradas.";
+          document.getElementById("seccion-proyectos").textContent =
+            "Proyectos";
+          document.getElementById("guru-descripcion").textContent =
+            "Plataforma desarrollada en Laravel + Livewire que permite la gestión integral de instituciones educativas. Incluye distintos tipos de usuario (Administrador, Colegio, Docente y Estudiante), cada uno con funcionalidades específicas.";
+          document.getElementById("guru-lista").innerHTML = `
+          <li><strong>Administrador:</strong> Registra y gestiona colegios.</li>
+          <li><strong>Colegio:</strong> Administra estudiantes, docentes, materias y asignaciones.</li>
+          <li><strong>Docente:</strong> Crea y califica trabajos y exámenes.</li>
+          <li><strong>Estudiante:</strong> Realiza trabajos, exámenes y consulta sus calificaciones.</li>`;
+          document.getElementById("api-tareas").textContent =
+            "REST API desarrollada con Node.js y Express. Permite CRUD de tareas con autenticación JWT.";
+          document.getElementById("reportes").textContent =
+            "Script en Python que genera reportes semanales desde una base de datos PostgreSQL y los envía por correo.";
+          document.getElementById("seccion-contacto").textContent = "Contacto";
+        } else if (lang === "en") {
+          document.getElementById("titulo-profesion").textContent =
+            "Backend Developer | Laravel · Livewire · MySQL";
+          document.getElementById("seccion-sobre-mi").textContent = "About Me";
+          document.getElementById("texto-sobre-mi").textContent =
+            "Backend developer with experience in building APIs, automating processes, and working with databases. I focus on simple, efficient, and well-structured solutions.";
+          document.getElementById("seccion-proyectos").textContent = "Projects";
+          document.getElementById("guru-descripcion").textContent =
+            "Platform built with Laravel + Livewire for complete school management. Supports multiple user roles (Admin, School, Teacher, and Student), each with specific features.";
+          document.getElementById("guru-lista").innerHTML = `
+          <li><strong>Admin:</strong> Registers and manages schools.</li>
+          <li><strong>School:</strong> Manages students, teachers, subjects, and assignments.</li>
+          <li><strong>Teacher:</strong> Creates and grades assignments and exams.</li>
+          <li><strong>Student:</strong> Completes assignments and exams, and views grades.</li>`;
+          document.getElementById("api-tareas").textContent =
+            "REST API built with Node.js and Express. Supports CRUD for tasks with JWT authentication.";
+          document.getElementById("reportes").textContent =
+            "Python script that generates weekly reports from a PostgreSQL database and sends them via email.";
+          document.getElementById("seccion-contacto").textContent = "Contact";
+        }
+      });
+    </script>
   </body>
 </html>
